@@ -6,7 +6,7 @@ var socketIO = require('socket.io');
 var fs = require('fs');
 var ssl_server_key = 'server_key.pem';
 var ssl_server_crt = 'server_crt.pem';
-var port = 8082;
+var port = 8080;
 var options = {
 	key: fs.readFileSync(ssl_server_key),
   cert: fs.readFileSync(ssl_server_crt)

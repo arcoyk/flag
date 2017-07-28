@@ -268,7 +268,7 @@ class Referee {
     shita += (target - shita) / easy;
   }
   void judge(Player p) {
-    p.correct = p.side() == side;
+    p.correct = (p.side() == side);
     if (p.correct) {
       goodSound.play();
       p.point++;
@@ -413,8 +413,12 @@ class Game {
       refe.showJudge(p1);
       refe.showJudge(p2);
     } else if (mode == 'result') {
-      Player winner = p1.point > p2.point ? p1 : p2;
-      image(celeb, winner.x, smallHeight / 2, 100 * IS, 100 * IS);
+      if (p1.point > 1) {
+          image(celeb, p1.x, smallHeight / 2, 100 * IS, 100 * IS);
+      }
+      if (p2.point > 1) {
+          image(celeb, p2.x, smallHeight / 2, 100 * IS, 100 * IS);
+      }
     } else if (mode == 'settle') {
       line(0, smallHeight - 10, map(time, 0, easy, 0, smallWidth * 2), smallHeight - 10);
     }

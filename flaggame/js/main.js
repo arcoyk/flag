@@ -31,7 +31,7 @@ var room = 'room1'
 grabWebCamVideo();
 function grabWebCamVideo() {
   navigator.mediaDevices.getUserMedia({
-    audio: false,
+    audio: true,
     // Chrome bug requires 'exact':
     // https://bugs.chromium.org/p/chromium/issues/detail?id=620665
     // video: {width: {exact: 1280}, height: {exact: 720}}
