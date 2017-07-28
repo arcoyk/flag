@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<style type='text/css'>
+<!--
+/* Facetime HD src = 640 x 480*/
+
+#main {
+  margin: auto 100px;
+  width: 526px;
+}
+
+div {
+  border: 1px solid black;
+}
+
+video {
+  width: 260px;
+  height: 200px;
+  background: yellow;
+}
+
+.sideCanvas {
+  width: 260px;
+  height: 200px;
+  background: green;
+}
+
+.side {
+  width: 260px;
+  float: left;
+}
+
+#mergedCanvas {
+  width: 1280px;
+  height: 480;
+  /*
+  width: 520px;
+  height: 200px;
+  background: green;
+  */
+}
+
+-->
+</style>
+<body>
+  <div id='main'>
+    <div>
+      <button onclick=joinChatroom()>Call</button>
+      <button onclick=leaveChatroom()>Hang Up</button>
+      <p>ICE Connection State: <span id='connection'>-</span></p>
+      <p>ICE Gathering State: <span id='gathering'>-</span></p> 
+      <p>Local ID: <span id='localId'>-</span></p>
+      <p>Remote ID: <span id='remoteId'>-</span></p>
+      <p>First: <span id='first'>-</span></p>
+    </div>
+    <div>
+      <h3>Merged</h3>
+      <canvas id='mergedCanvas'></canvas>
+    </div>
+    <div class='side' id='local'>
+      <h3>Local</h3>
+      <video autoplay muted id="localVideo"></video>
+    </div>
+    <div class='side' id='remote'>
+      <h3>Remote</h3>
+      <video autoplay id="remoteVideo"></video>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/main.js"></script>
+  <script type="text/javascript" src="js/processing.min.js"></script>
+  <script type="text/processing" data-processing-target="mergedCanvas" src="js/game.js"></script>
+</body>
+</html>
